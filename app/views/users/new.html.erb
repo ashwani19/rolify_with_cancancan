@@ -1,0 +1,57 @@
+<h1>Sign Up</h1>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row collapse">
+  <div class="small-3 columns">
+  	<label>Role</label>
+  </div>
+  	<div class="small-9 columns">
+    <select name="role">
+     <option value="admin">Admin</option>
+     <option value="moderator">Moderator</option>
+     <option value="author">Author</option>
+    </select>
+  </div>
+  <div class="row collapse">
+  <div class="small-3 columns">
+  	<%= f.label :name %>
+  </div>
+  	<div class="small-9 columns">
+    <%= f.text_field :name %>
+  </div>
+  <div class="row collapse">
+  <div class="small-3 columns">
+    <%= f.label :email %>
+</div>
+    <div class="small-9 columns">
+    <%= f.text_field :email %>
+  </div>
+ <div class="row collapse">
+  <div class="small-3 columns">
+    <%= f.label :password %>
+</div>
+    <div class="small-9 columns">
+    <%= f.password_field :password %>
+  </div>
+  <div class="row collapse">
+  <div class="small-3 columns">
+    <%= f.label :password_confirmation %>
+</div>
+    <div class="small-9 columns">
+    <%= f.password_field :password_confirmation %>
+  </div>
+ <div class="row collapse">
+   <div class="small-9 small-offset-3 columns"><%= f.submit %>
+  </div>
+</div>
+<% end %>
